@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import cls from './NavBar.module.scss'
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import cls from './NavBar.module.scss';
 
 interface NavBarProps {
   className?: string
 }
 
-export const Navbar = ({ className }: NavBarProps) => {
+export function Navbar({ className }: NavBarProps) {
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <div className={cls.links}>
@@ -18,5 +18,5 @@ export const Navbar = ({ className }: NavBarProps) => {
         </AppLink>
       </div>
     </div>
-  )
+  );
 }
