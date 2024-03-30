@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import './PageLoader.scss';
+import { Loader } from 'shared/ui/Loader/Loader';
+import cls from './PageLoader.module.scss';
 
 interface PageLoaderProps {
   className?: string
@@ -7,13 +8,8 @@ interface PageLoaderProps {
 
 export function PageLoader({ className }: PageLoaderProps) {
   return (
-    <div className={classNames('page-loader', {}, [className])}>
-      <div className="lds-ellipsis">
-        <div />
-        <div />
-        <div />
-        <div />
-      </div>
+    <div className={classNames(cls.PageLoader, {}, [className])}>
+      <Loader />
     </div>
   );
 }
