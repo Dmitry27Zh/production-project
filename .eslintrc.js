@@ -38,7 +38,7 @@ module.exports = {
         caughtErrorsIgnorePattern: '^_',
       },
     ],
-    'max-len':['error', { ignoreComments: true, code: 100 },]
+    'max-len':['error', { ignoreComments: true, code: 120 },]
   },
   ignorePatterns: [".eslintrc.js"]
 };
