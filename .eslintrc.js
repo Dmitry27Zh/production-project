@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     jest: true
   },
-  extends: ['airbnb', 'airbnb-typescript'],
+  extends: ['airbnb', 'airbnb-typescript', 'plugin:i18next/recommended'],
   overrides: [
     {
       env: {
@@ -13,6 +13,12 @@ module.exports = {
       files: ['src/**/*.{ts,tsx}'],
       parserOptions: {
         sourceType: 'script',
+      },
+    },
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+          'i18next/no-literal-string': 'off',
       },
     },
   ],
@@ -38,7 +44,8 @@ module.exports = {
         caughtErrorsIgnorePattern: '^_',
       },
     ],
-    'max-len':['error', { ignoreComments: true, code: 120 },]
+    'max-len':['error', { ignoreComments: true, code: 120 },],
+    'i18next/no-literal-string': ["error", { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] }]
   },
   ignorePatterns: [".eslintrc.js"]
 };

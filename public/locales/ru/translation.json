@@ -3,5 +3,8 @@
   "Translate": "Перевод",
   "The page doesn't exist": "Страница не существует",
   "Unknown error": "Неизвестная ошибка",
-  "Reload page": "Обновить страницу"
+  "Reload page": "Обновить страницу",
+  "Main": "Главная",
+  "About": "О нас",
+  "Toggle": "Переключить"
 }
