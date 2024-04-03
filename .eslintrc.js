@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     jest: true
   },
-  extends: ['airbnb', 'airbnb-typescript', 'plugin:i18next/recommended'],
+  extends: ['airbnb', 'airbnb-typescript', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
   overrides: [
     {
       env: {
