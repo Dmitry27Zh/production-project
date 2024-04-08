@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import {buildCSSLoader} from './loaders/buildCSSLoader'
+import { buildSVGLoader } from './loaders/buildSVGLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const cssLoader = buildCSSLoader(isDev);
@@ -9,10 +10,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     use: 'ts-loader',
     exclude: /node_modules/,
   };
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  };
+  const svgLoader = buildSVGLoader();
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [

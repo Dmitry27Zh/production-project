@@ -1,7 +1,8 @@
-import webpack from 'webpack'
+import webpack, { RuleSetRule } from 'webpack'
 import path from 'path'
 import { BuildPaths } from '../build/types/config'
 import { buildCSSLoader } from '../build/loaders/buildCSSLoader';
+import { buildSVGLoader } from '../build/loaders/buildSVGLoader';
 
 export default ({config}: {config: webpack.Configuration}) => {
   const paths: BuildPaths = {
@@ -12,7 +13,15 @@ export default ({config}: {config: webpack.Configuration}) => {
   }
   config.resolve?.modules?.push(paths.src)
   config.resolve?.extensions?.push('.ts', '.tsx')
-  config.module?.rules?.push(buildCSSLoader(true))
+  // @ts-ignore:next-line
+  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+    if (/svg/.test(rule.test as string)) {
+      return {...rule, exclude: /\.svg$/i}
+    } else {
+      return rule
+    }
+  })
+  config.module?.rules?.push(buildSVGLoader(), buildCSSLoader(true))
 
   return config
 }
