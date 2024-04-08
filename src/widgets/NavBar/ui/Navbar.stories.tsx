@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Sidebar } from './Sidebar';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Navbar } from './Navbar';
 
-const meta: Meta<typeof Sidebar> = {
-  title: 'widgets/Sidebar',
-  component: Sidebar,
+const meta: Meta<typeof Navbar> = {
+  title: 'widgets/Navbar',
+  component: Navbar,
 };
 
 export default meta;
-type Story = StoryObj<typeof Sidebar>;
+type Story = StoryObj<typeof Navbar>;
 
 export const Light: Story = {
   args: { },
