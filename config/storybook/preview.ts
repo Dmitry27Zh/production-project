@@ -12,7 +12,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [StyleDecorator, ThemeDecorator(Theme.DARK)]
+  decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT)]
 };
 
 export default preview;
