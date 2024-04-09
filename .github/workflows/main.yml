@@ -13,8 +13,13 @@ jobs:
         run: git clone https://github.com/${{ github.repository }}
       - name: Setting up Node.js
         uses: actions/setup-node@v3
-      - name: Debug directory structure
+      - name: Print current directory
+        run: pwd
+      - name: List directory contents
         run: ls -al
+      - name: Find package.json
+        run: find . -name "package.json"
+
       - name: Navigate to project directory
         run: cd production-project
       - name: install modules
