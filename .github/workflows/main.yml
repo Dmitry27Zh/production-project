@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: action/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+          repository: ${{ github.repository }}
+          path: ./
       - name: Setting up Node.js
         uses: actions/setup-node@v3
       - name: install modules
