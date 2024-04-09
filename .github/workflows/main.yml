@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Navigate to project directory
-        run: cd production-project
+      - name: List repository contents
+        run: ls -al
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
