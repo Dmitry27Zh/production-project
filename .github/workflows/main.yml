@@ -10,23 +10,21 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
-        run: git clone https://github.com/${{ github.repository }}
-      - name: Setting up Node.js
-        uses: actions/setup-node@v3
-      - name: Print current directory
-        run: pwd
-      - name: List directory contents
-        run: ls -al
-      - name: Find package.json
-        run: find . -name "package.json"
-      - name: Set project directory path
-        id: set-dir
-        run: echo "::set-output name=project-dir::$(dirname $(find . -name "package.json"))"
+        uses: actions/checkout@v2
       - name: Navigate to project directory
-        run: cd ${{ steps.set-dir.outputs.project-dir }}
-      - name: List directory contents (After Navigation)
-        run: ls -al
-      - name: install modules
+        run: cd production-project
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14.x'
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
         run: npm install
       - name: build production project
         run: npm run build:production
