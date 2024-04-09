@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: action/checkout@v3
+        uses: action/checkout
         with:
           repository: Dmitry27Zh/production-project
       - name: Setting up Node.js
