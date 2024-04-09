@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: build production project
-        run: npm run build:production
+        run: npm run build:prod
       - name: linting typescript
         run: npm run lint:ts
       - name: linting css
