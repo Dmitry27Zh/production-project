@@ -9,14 +9,8 @@ jobs:
   pipeline:
     runs-on: ubuntu-20.04
     steps:
-      - name: Clear cache
-        run: |
-          npm cache clean --force
-          yarn cache clean
       - name: Checkout repository
-        uses: action/checkout@v4
-        with:
-          repository: Dmitry27Zh/production-project
+        run: git clone https://github.com/${{ github.repository }}
       - name: Setting up Node.js
         uses: actions/setup-node@v3
       - name: install modules
