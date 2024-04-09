@@ -9,6 +9,10 @@ jobs:
   pipeline:
     runs-on: ubuntu-latest
     steps:
+      - name: Clear cache
+        run: |
+          npm cache clean --force
+          yarn cache clean
       - name: Checkout repository
         uses: action/checkout@v4
         with:
