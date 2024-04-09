@@ -19,10 +19,12 @@ jobs:
         run: ls -al
       - name: Find package.json
         run: find . -name "package.json"
-
+      - name: Set project directory path
+        id: set-dir
+        run: echo "::set-output name=project-dir::$(dirname $(find . -name "package.json"))"
       - name: Navigate to project directory
-        run: cd production-project
-      - name: List directory contents
+        run: cd ${{ steps.set-dir.outputs.project-dir }}
+      - name: List directory contents (After Navigation)
         run: ls -al
       - name: install modules
         run: npm install
