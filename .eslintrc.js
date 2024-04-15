@@ -47,5 +47,5 @@ module.exports = {
     'max-len':['error', { ignoreComments: true, code: 120 },],
     'i18next/no-literal-string': ["error", { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] }]
   },
-  ignorePatterns: [".eslintrc.js", "webpack.config.ts", "build", "config"]
+  ignorePatterns: [".eslintrc.js", "webpack.config.ts", "build", "config", "scripts"]
 };
