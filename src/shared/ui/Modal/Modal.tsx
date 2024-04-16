@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-  MouseEventHandler, ReactNode, useEffect, useRef, useState,
+  MouseEventHandler, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import cls from './Modal.module.scss';
 
@@ -18,14 +18,11 @@ export function Modal({
 }: ModalProps) {
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
-  useEffect(() => () => {
-    clearTimeout(timerRef.current);
-  }, []);
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };
-  const closeHandler = () => {
+  const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
       timerRef.current = setTimeout(() => {
@@ -33,10 +30,27 @@ export function Modal({
         setIsClosing(false);
       }, ANIMATION_DELAY);
     }
-  };
+  }, [onClose]);
   const onContentClick: MouseEventHandler = (event) => {
     event.stopPropagation();
   };
+  const onKeydown = useCallback((event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      closeHandler();
+    }
+  }, [closeHandler]);
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('keydown', onKeydown);
+    } else {
+      document.removeEventListener('keydown', onKeydown);
+    }
+
+    return () => {
+      clearTimeout(timerRef.current);
+      document.removeEventListener('keydown', onKeydown);
+    };
+  }, [isOpen, onKeydown]);
 
   return (
     <div className={classNames(cls.Modal, mods, [className])}>
