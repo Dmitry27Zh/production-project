@@ -45,7 +45,9 @@ module.exports = {
       },
     ],
     'max-len':['error', { ignoreComments: true, code: 120 },],
-    'i18next/no-literal-string': ["error", { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] }]
+    'i18next/no-literal-string': ["error", { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] }],
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off'
   },
   ignorePatterns: [".eslintrc.js", "webpack.config.ts", "build", "config", "scripts"]
 };
