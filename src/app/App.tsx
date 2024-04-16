@@ -1,9 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import { Suspense, useState } from 'react';
-import './styles/index.scss';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router/';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Modal } from 'shared/ui/Modal/Modal';
@@ -11,9 +9,10 @@ import { Modal } from 'shared/ui/Modal/Modal';
 function App() {
   const { theme } = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  document.body.setAttribute('data-theme', theme);
 
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <div className="app">
       <Suspense fallback="">
         <Navbar />
         <button onClick={() => setIsModalOpen((prev) => !prev)} type="button">Toggle</button>

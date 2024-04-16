@@ -3,6 +3,7 @@ import {
   MouseEventHandler, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import cls from './Modal.module.scss';
+import { Portal } from '../Portal/Portal';
 
 interface ModalProps {
   className?: string
@@ -53,10 +54,12 @@ export function Modal({
   }, [isOpen, onKeydown]);
 
   return (
-    <div className={classNames(cls.Modal, mods, [className])}>
-      <div className={cls.overlay} onClick={closeHandler}>
-        <div className={cls.content} onClick={onContentClick}>{children}</div>
+    <Portal>
+      <div className={classNames(cls.Modal, mods, [className])}>
+        <div className={cls.overlay} onClick={closeHandler}>
+          <div className={cls.content} onClick={onContentClick}>{children}</div>
+        </div>
       </div>
-    </div>
+    </Portal>
   );
 }
