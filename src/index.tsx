@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+import { StoreProvider } from 'app/providers/StoreProvider';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
@@ -9,13 +10,16 @@ import 'app/styles/index.scss';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <ErrorBoundary>
-      <WrapperProvider>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </WrapperProvider>
-    </ErrorBoundary>
-  </BrowserRouter>,
+  <StoreProvider>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <WrapperProvider>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </WrapperProvider>
+      </ErrorBoundary>
+    </BrowserRouter>
+    ,
+  </StoreProvider>,
 );
