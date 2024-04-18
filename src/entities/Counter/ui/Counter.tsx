@@ -16,11 +16,11 @@ export function Counter() {
 
   return (
     <div>
-      <h1>
+      <h1 data-testid="value-title">
         {counterValue}
       </h1>
-      <Button onClick={increment}>increment</Button>
-      <Button onClick={decrement}>decrement</Button>
+      <Button data-testid="increment-btn" onClick={increment}>increment</Button>
+      <Button data-testid="decrement-btn" onClick={decrement}>decrement</Button>
     </div>
   );
 }
