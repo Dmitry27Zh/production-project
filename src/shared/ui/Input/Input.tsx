@@ -1,5 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { ChangeEvent, InputHTMLAttributes } from 'react';
+import React, {
+  ChangeEvent, InputHTMLAttributes, useRef, useState,
+} from 'react';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
@@ -11,10 +13,15 @@ interface InputProps extends HTMLInputProps {
 }
 
 export const Input = React.memo(({
-  className, value, onChange, type, placeholder,
+  className, value, onChange, type, placeholder, autoFocus, ...otherProps
 }: InputProps) => {
+  const [caretPosition, setCaretPosition] = useState(0);
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     onChange?.(event.target.value);
+    setCaretPosition(event.target.value.length);
+  };
+  const onSelect = (event: any) => {
+    setCaretPosition(event?.target?.selectionStart ?? 0);
   };
 
   return (
@@ -25,8 +32,16 @@ export const Input = React.memo(({
       </div>
       )}
       <div className={cls.caretWrapper}>
-        <input type={type} value={value} onChange={onChangeHandler} className={cls.input} />
-        <span className={cls.caret} />
+        <input
+          type={type}
+          value={value}
+          onChange={onChangeHandler}
+          onSelect={onSelect}
+          className={cls.input}
+          autoFocus={autoFocus}
+          {...otherProps}
+        />
+        <span className={cls.caret} style={{ left: `${caretPosition * 9}px` }} />
       </div>
     </div>
   );

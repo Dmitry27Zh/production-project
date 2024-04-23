@@ -9,5 +9,7 @@
   "About": "О нас",
   "Toggle": "Переключить",
   "Log In": "Войти",
-  "Sign In": "Войти"
+  "Sign In": "Войти",
+  "Enter username": "Введите логин",
+  "Enter password": "Введите пароль"
 }

@@ -51,7 +51,8 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "jsx-a11y/no-autofocus": "off"
   },
   ignorePatterns: [".eslintrc.js", "webpack.config.ts", "build", "config", "scripts"]
 };

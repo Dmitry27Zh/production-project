@@ -13,8 +13,8 @@ export function LoginForm({ className }: LoginFormProps) {
 
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
-      <Input type="text" className={cls.input} />
-      <Input type="text" className={cls.input} />
+      <Input type="text" className={cls.input} placeholder={t('Enter username')} autoFocus />
+      <Input type="text" className={cls.input} placeholder={t('Enter password')} />
       <Button className={cls.loginBtn}>{t('Sign In')}</Button>
     </div>
   );
