@@ -7,14 +7,14 @@ import i18nForTests from 'shared/config/i18n/i18nForTests';
 
 export interface ComponentRenderOptions {
   route?: string
-  initialState?: StateSchema
+  initialState?: Partial<StateSchema>
 }
 
 export function componentRender(component: ReactNode, options: ComponentRenderOptions = {}) {
   const { route = '/', initialState } = options;
 
   return render(
-    <StoreProvider initialState={initialState}>
+    <StoreProvider initialState={initialState as StateSchema}>
       <MemoryRouter initialEntries={[route]}>
         <I18nextProvider i18n={i18nForTests}>
           {component}
