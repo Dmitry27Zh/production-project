@@ -1,3 +1,4 @@
+import { StateSchema } from 'app/providers/StoreProvider';
 import { getCounter } from './getCounter';
 
 describe('getCounter', () => {
@@ -7,6 +8,6 @@ describe('getCounter', () => {
         value: 10,
       },
     };
-    expect(getCounter(state)).toEqual({ value: 10 });
+    expect(getCounter(state as StateSchema)).toEqual({ value: 10 });
   });
 });
