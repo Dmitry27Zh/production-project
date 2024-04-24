@@ -6,6 +6,17 @@
   margin-right: 5px;
 }
 
+.caret {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 9px;
+  height: 3px;
+  background: var(--primary-color);
+  animation: blink 0.7s forwards infinite;
+}
+
 .input {
   width: 100%;
   color: transparent;
@@ -26,17 +37,6 @@
 .caretWrapper {
   flex-grow: 1;
   position: relative;
-}
-
-.caret {
-  display: none;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 9px;
-  height: 3px;
-  background: var(--primary-color);
-  animation: blink 0.7s forwards infinite;
 }
 
 @keyframes blink {
