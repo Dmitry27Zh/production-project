@@ -11,5 +11,7 @@
   "Log In": "Log In",
   "Sign In": "Sign In",
   "Enter username": "Enter username",
-  "Enter password": "Enter password"
+  "Enter password": "Enter password",
+  "Log in form": "Log in form",
+  "Wrong login or password": "Wrong login or password"
 }
