@@ -34,7 +34,7 @@ export const LoginForm = React.memo(({ className }: LoginFormProps) => {
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('Log in form')} />
-      {error && <Text text={error} theme={TextTheme.ERROR} />}
+      {error && <Text text={t('Wrong login or password')} theme={TextTheme.ERROR} />}
       <Input
         type="text"
         className={cls.input}
