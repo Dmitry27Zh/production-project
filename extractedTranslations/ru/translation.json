@@ -14,5 +14,6 @@
   "Sign In": "Sign In",
   "The page doesn't exist": "The page doesn't exist",
   "Toggle": "Toggle",
-  "Unknown error": "Unknown error"
+  "Unknown error": "Unknown error",
+  "Wrong login or password": "Wrong login or password"
 }
