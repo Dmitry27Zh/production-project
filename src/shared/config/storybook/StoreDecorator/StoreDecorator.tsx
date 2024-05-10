@@ -7,7 +7,7 @@ const defaultAsyncReducers: ReducersMapObject = {
   login: loginReducer
 }
 
-export const StoreDecorator = (state: StateSchema, asyncReducers: ReducersMapObject) => (StoryComponent: StoryFn) => {
+export const StoreDecorator = (state: StateSchema, asyncReducers?: ReducersMapObject) => (StoryComponent: StoryFn) => {
   return <StoreProvider initialState={state} asyncReducers={{...defaultAsyncReducers, ...asyncReducers}}>
       <StoryComponent />
     </StoreProvider>

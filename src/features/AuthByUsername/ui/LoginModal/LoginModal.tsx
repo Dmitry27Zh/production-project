@@ -14,7 +14,7 @@ interface LoginModalProps {
 export function LoginModal({ className, isOpen, onClose }: LoginModalProps) {
   return (
     <Modal className={classNames(cls.LoginModal, {}, [className])} isOpen={isOpen} onClose={onClose} lazy>
-      <Suspense fallback={<Loader />}><LoginFormAsync /></Suspense>
+      <Suspense fallback={<Loader />}><LoginFormAsync onSuccess={onClose} /></Suspense>
     </Modal>
   );
 }
