@@ -21,13 +21,6 @@
   width: 100%;
 }
 
-.link {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: 10px;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
@@ -38,16 +31,6 @@
 
   .lang {
     margin-left: 0;
-  }
-
-  .link {
-    gap: 0;
-  }
-
-  .linkText {
-    width: 0;
-    opacity: 0;
-    transition: 0.2s opacity;
   }
 }
 
@@ -63,8 +46,4 @@
   align-items: center;
   margin-top: 20px;
   padding: 30px;
-}
-
-.icon {
-  fill: var(--inverted-primary-color);
 }
