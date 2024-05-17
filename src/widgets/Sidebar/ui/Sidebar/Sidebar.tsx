@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
@@ -31,7 +31,10 @@ export function Sidebar({ className }: SidebarProps) {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.items}>
-        {SidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed />)}
+        {useMemo(
+          () => SidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed />),
+          [],
+        )}
       </div>
       <div className={classNames(cls.switchers)}>
         <ThemeSwitcher />
