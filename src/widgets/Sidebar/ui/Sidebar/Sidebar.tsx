@@ -32,7 +32,7 @@ export function Sidebar({ className }: SidebarProps) {
       </Button>
       <div className={cls.items}>
         {useMemo(
-          () => SidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed />),
+          () => SidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed={false} />),
           [],
         )}
       </div>
